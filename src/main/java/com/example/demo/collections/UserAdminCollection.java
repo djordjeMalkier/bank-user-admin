@@ -1,22 +1,23 @@
 package com.example.demo.collections;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "actions")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
+@Builder
 public class UserAdminCollection {
     @Id
     private String id;
-    private Date time;
+    private String personalID;
+    private String name;
+    private String address;
     private String method;
+    private String error;
+    private LocalDateTime createdTime;
 }
+

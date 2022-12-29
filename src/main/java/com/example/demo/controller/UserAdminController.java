@@ -26,7 +26,6 @@ public class UserAdminController {
 
     @PostMapping("/auth")
     public String authenticate(@RequestBody AuthenticationRequest authenticationRequest) {
-        System.out.println("ispis");
         return userAdminService.authenticate(authenticationRequest);
     }
 }
