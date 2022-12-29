@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.collections.UserAdminCollection;
 import com.example.demo.controller.dto.AuthenticationRequest;
 import com.example.demo.controller.dto.UserAdminDTO;
+import com.example.demo.repository.UserCollectionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -14,12 +16,12 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class UserAdminService {
     private WebClient webClient;
-
     @Autowired
     public UserAdminService(WebClient.Builder builder) {
         webClient = builder.baseUrl("http://localhost:8080").build();
     }
     public Mono<UserAdminDTO> saveUser(UserAdminDTO user, String token) {
+
         return webClient
                 .post()
                 .uri("/users/add")
@@ -40,6 +42,7 @@ public class UserAdminService {
                 .block();
     }
     public Mono<UserAdminDTO> delete(String id, String token) {
+
         return webClient
                 .delete()
                 .uri(uriBuilder -> uriBuilder

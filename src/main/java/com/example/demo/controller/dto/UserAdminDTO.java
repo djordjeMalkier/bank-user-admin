@@ -12,11 +12,8 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class UserAdminDTO {
-
     private String personalId;
-
     private String name;
-
     private String surname;
 
     private String password;
