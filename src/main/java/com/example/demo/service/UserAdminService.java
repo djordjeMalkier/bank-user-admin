@@ -1,9 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.collections.UserAdminCollection;
 import com.example.demo.controller.dto.AuthenticationRequest;
 import com.example.demo.controller.dto.UserAdminDTO;
-import com.example.demo.repository.UserCollectionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

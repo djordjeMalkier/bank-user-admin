@@ -1,6 +1,6 @@
 package com.example.demo.aop;
 
-import com.example.demo.collections.UserAdminCollection;
+import com.example.demo.model.UserLog;
 import com.example.demo.controller.dto.UserAdminDTO;
 import com.example.demo.repository.UserRequestRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,10 +37,11 @@ public class UserRequestAOP {
             return userAdminDTOMono.publishOn(Schedulers.boundedElastic()).doOnSuccess(
                     user ->
                             userRequestRepository.insert(
-                                    UserAdminCollection.builder()
+                                    UserLog.builder()
                                             .method(joinPoint.getSignature().getName())
                                             .personalID(user.getPersonalId())
                                             .name(user.getName())
+                                            .surname(user.getSurname())
                                             .address(user.getAddress())
                                             .createdTime(LocalDateTime.now())
                                             .build())
